@@ -26,7 +26,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.4</version>
                 <configuration>
-                    <mainClass>es.ideas.slidercolores.App</mainClass>
+                    <mainClass>es.ideas.App</mainClass>
                 </configuration>
                 <executions>
                     <execution>
