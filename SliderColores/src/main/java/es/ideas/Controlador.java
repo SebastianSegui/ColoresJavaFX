@@ -48,20 +48,20 @@ public class Controlador implements Initializable {
         lvColores.setItems(lista);
         
         sliderR.valueProperty().addListener((obs, oldval, newVal) -> {
-            sliderR.setValue(Math.round(newVal.doubleValue()));
+            sliderR.setValue(newVal.intValue());
             formaColor.setFill(Color.rgb((int) sliderR.getValue(), (int) sliderG.getValue(), (int) sliderB.getValue()));
             labelRGB.textProperty().set("RGB(" + sliderR.getValue() + ", " + sliderG.getValue() + ", " + sliderB.getValue() + ")");
         });
         
         sliderG.valueProperty().addListener((obs, oldval, newVal) -> {
-            sliderG.setValue(Math.round(newVal.doubleValue()));
+            sliderG.setValue(newVal.intValue());
             formaColor.setFill(Color.rgb((int) sliderR.getValue(), (int) sliderG.getValue(), (int) sliderB.getValue()));
             labelRGB.textProperty().set("RGB(" + sliderR.getValue() + ", " + sliderG.getValue() + ", " + sliderB.getValue() + ")");
         });
         
         
         sliderB.valueProperty().addListener((obs, oldval, newVal) -> {
-            sliderB.setValue(Math.round(newVal.doubleValue()));
+            sliderB.setValue(newVal.intValue());
             formaColor.setFill(Color.rgb((int) sliderR.getValue(), (int) sliderG.getValue(), (int) sliderB.getValue()));
             labelRGB.textProperty().set("RGB(" + sliderR.getValue() + ", " + sliderG.getValue() + ", " + sliderB.getValue() + ")");
         });
