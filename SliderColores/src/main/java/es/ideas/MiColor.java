@@ -3,7 +3,7 @@ package es.ideas;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
-public class Color {
+public class MiColor {
     
     private final IntegerProperty valorR = new SimpleIntegerProperty(
             this, "valorR");
@@ -14,15 +14,15 @@ public class Color {
     private final IntegerProperty valorB = new SimpleIntegerProperty(
             this, "valorB");
 
-    public Color() {
+    public MiColor() {
     }
     
-    public Color(int valorR, int valorG, int valorB) {
+    public MiColor(int valorR, int valorG, int valorB) {
         this.valorR.set(valorR);
         this.valorG.set(valorG);
         this.valorB.set(valorB);
     }
-
+    
     public int getValorR() {
         return valorR.get();
     }
@@ -63,6 +63,4 @@ public class Color {
     public String toString() {
         return "RGB(" + valorR.get() + ", " + valorG.get() + ", " + valorB.get() + ")";
     }
-    
-    
 }

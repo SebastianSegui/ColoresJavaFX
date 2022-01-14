@@ -11,11 +11,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 public class Controlador implements Initializable {
     
-    private ObservableList<Color> lista;
+    private ObservableList<MiColor> lista;
     
     @FXML
     private Label labelR;
@@ -32,11 +33,11 @@ public class Controlador implements Initializable {
     @FXML
     private Label labelRGB;
     @FXML
-    private AnchorPane anchorColoreado;
-    @FXML
-    private ListView<Color> lvColores;
+    private ListView<MiColor> lvColores;
     @FXML
     private Button btnAñadir;
+    @FXML
+    private Rectangle formaColor;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -44,12 +45,24 @@ public class Controlador implements Initializable {
         lista = FXCollections.observableArrayList();
         lvColores.setItems(lista);
         
-        sliderR.valueProperty().addListener((obs, oldval, newVal) ->
-        sliderR.setValue(Math.round(newVal.doubleValue())));
-        sliderG.valueProperty().addListener((obs, oldval, newVal) ->
-        sliderG.setValue(Math.round(newVal.doubleValue())));
-        sliderB.valueProperty().addListener((obs, oldval, newVal) ->
-        sliderB.setValue(Math.round(newVal.doubleValue())));
+        sliderR.valueProperty().addListener((obs, oldval, newVal) -> {
+        sliderR.setValue(Math.round(newVal.doubleValue()));
+        formaColor.setFill(Color.rgb((int) sliderR.getValue(), (int) sliderG.getValue(), (int) sliderB.getValue()));
+        labelRGB.textProperty().set("RGB(" + sliderR.getValue() + ", " + sliderG.getValue() + ", " + sliderB.getValue() + ")");
+        });
+        
+        sliderG.valueProperty().addListener((obs, oldval, newVal) -> {
+        sliderG.setValue(Math.round(newVal.doubleValue()));
+        formaColor.setFill(Color.rgb((int) sliderR.getValue(), (int) sliderG.getValue(), (int) sliderB.getValue()));
+        labelRGB.textProperty().set("RGB(" + sliderR.getValue() + ", " + sliderG.getValue() + ", " + sliderB.getValue() + ")");
+        });
+        
+        
+        sliderB.valueProperty().addListener((obs, oldval, newVal) -> {
+        sliderB.setValue(Math.round(newVal.doubleValue()));
+        formaColor.setFill(Color.rgb((int) sliderR.getValue(), (int) sliderG.getValue(), (int) sliderB.getValue()));
+        labelRGB.textProperty().set("RGB(" + sliderR.getValue() + ", " + sliderG.getValue() + ", " + sliderB.getValue() + ")");
+        });
         
         labelR.textProperty().bind(sliderR.valueProperty().asString());
         labelG.textProperty().bind(sliderG.valueProperty().asString());
@@ -58,7 +71,7 @@ public class Controlador implements Initializable {
 
     @FXML
     private void onClickAñadir(ActionEvent event) {
-        Color c = new Color((int) sliderR.getValue(), (int) sliderG.getValue(), (int) sliderB.getValue());
+        MiColor c = new MiColor((int) sliderR.getValue(), (int) sliderG.getValue(), (int) sliderB.getValue());
         lista.add(c);
     }
 }
