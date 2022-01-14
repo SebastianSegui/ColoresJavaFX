@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="1028.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.ideas.Controlador">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="1028.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.ideas.Controlador">
    <children>
       <SplitPane dividerPositions="0.4108938547486033" layoutX="-2.0" layoutY="-3.0" orientation="VERTICAL" prefHeight="717.0" prefWidth="1030.0">
         <items>
@@ -35,7 +35,12 @@
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
                               <ListView fx:id="lvColores" layoutX="6.0" layoutY="84.0" prefHeight="327.0" prefWidth="494.0" />
-                              <Button fx:id="btnAñadir" layoutX="214.0" layoutY="18.0" mnemonicParsing="false" onAction="#onClickAñadir" prefHeight="44.0" prefWidth="83.0" text="Añadir" textAlignment="CENTER">
+                              <Button fx:id="btnAñadir" layoutX="158.0" layoutY="18.0" mnemonicParsing="false" onAction="#onClickAñadir" prefHeight="44.0" prefWidth="83.0" text="Añadir" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnEliminar" layoutX="269.0" layoutY="18.0" mnemonicParsing="false" onAction="#onClickEliminar" prefHeight="44.0" prefWidth="105.0" text="Eliminar" textAlignment="CENTER">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
