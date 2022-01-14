@@ -58,4 +58,11 @@ public class Color {
     public IntegerProperty valorBProperty() {
         return valorB;
     }
+
+    @Override
+    public String toString() {
+        return "RGB(" + valorR.get() + ", " + valorG.get() + ", " + valorB.get() + ")";
+    }
+    
+    
 }
