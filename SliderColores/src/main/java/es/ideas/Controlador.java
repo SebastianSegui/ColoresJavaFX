@@ -2,6 +2,8 @@ package es.ideas;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,11 +11,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 public class Controlador implements Initializable {
-
+    
+    private ObservableList<Color> lista;
+    
     @FXML
     private Label labelR;
     @FXML
@@ -31,12 +34,15 @@ public class Controlador implements Initializable {
     @FXML
     private AnchorPane anchorColoreado;
     @FXML
-    private ListView<?> lvColores;
+    private ListView<Color> lvColores;
     @FXML
     private Button btnAñadir;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        lista = FXCollections.observableArrayList();
+        lvColores.setItems(lista);
         
         sliderR.valueProperty().addListener((obs, oldval, newVal) ->
         sliderR.setValue(Math.round(newVal.doubleValue())));
@@ -52,6 +58,7 @@ public class Controlador implements Initializable {
 
     @FXML
     private void onClickAñadir(ActionEvent event) {
-        
+        Color c = new Color((int) sliderR.getValue(), (int) sliderG.getValue(), (int) sliderB.getValue());
+        lista.add(c);
     }
 }
