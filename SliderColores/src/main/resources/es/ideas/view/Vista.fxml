@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="1028.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.ideas.Controlador">
@@ -27,7 +28,10 @@
                <children>
                   <SplitPane dividerPositions="0.5038819875776398" prefHeight="421.0" prefWidth="1032.0">
                     <items>
-                      <AnchorPane fx:id="anchorColoreado" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <Rectangle fx:id="formaColor" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="421.0" layoutX="-4.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="522.0" />
+                           </children></AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
                               <ListView fx:id="lvColores" layoutX="6.0" layoutY="84.0" prefHeight="327.0" prefWidth="494.0" />
