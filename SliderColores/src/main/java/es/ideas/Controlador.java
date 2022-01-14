@@ -38,6 +38,8 @@ public class Controlador implements Initializable {
     private Button btnAñadir;
     @FXML
     private Rectangle formaColor;
+    @FXML
+    private Button btnEliminar;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -46,27 +48,32 @@ public class Controlador implements Initializable {
         lvColores.setItems(lista);
         
         sliderR.valueProperty().addListener((obs, oldval, newVal) -> {
-        sliderR.setValue(Math.round(newVal.doubleValue()));
-        formaColor.setFill(Color.rgb((int) sliderR.getValue(), (int) sliderG.getValue(), (int) sliderB.getValue()));
-        labelRGB.textProperty().set("RGB(" + sliderR.getValue() + ", " + sliderG.getValue() + ", " + sliderB.getValue() + ")");
+            sliderR.setValue(Math.round(newVal.doubleValue()));
+            formaColor.setFill(Color.rgb((int) sliderR.getValue(), (int) sliderG.getValue(), (int) sliderB.getValue()));
+            labelRGB.textProperty().set("RGB(" + sliderR.getValue() + ", " + sliderG.getValue() + ", " + sliderB.getValue() + ")");
         });
         
         sliderG.valueProperty().addListener((obs, oldval, newVal) -> {
-        sliderG.setValue(Math.round(newVal.doubleValue()));
-        formaColor.setFill(Color.rgb((int) sliderR.getValue(), (int) sliderG.getValue(), (int) sliderB.getValue()));
-        labelRGB.textProperty().set("RGB(" + sliderR.getValue() + ", " + sliderG.getValue() + ", " + sliderB.getValue() + ")");
+            sliderG.setValue(Math.round(newVal.doubleValue()));
+            formaColor.setFill(Color.rgb((int) sliderR.getValue(), (int) sliderG.getValue(), (int) sliderB.getValue()));
+            labelRGB.textProperty().set("RGB(" + sliderR.getValue() + ", " + sliderG.getValue() + ", " + sliderB.getValue() + ")");
         });
         
         
         sliderB.valueProperty().addListener((obs, oldval, newVal) -> {
-        sliderB.setValue(Math.round(newVal.doubleValue()));
-        formaColor.setFill(Color.rgb((int) sliderR.getValue(), (int) sliderG.getValue(), (int) sliderB.getValue()));
-        labelRGB.textProperty().set("RGB(" + sliderR.getValue() + ", " + sliderG.getValue() + ", " + sliderB.getValue() + ")");
+            sliderB.setValue(Math.round(newVal.doubleValue()));
+            formaColor.setFill(Color.rgb((int) sliderR.getValue(), (int) sliderG.getValue(), (int) sliderB.getValue()));
+            labelRGB.textProperty().set("RGB(" + sliderR.getValue() + ", " + sliderG.getValue() + ", " + sliderB.getValue() + ")");
         });
         
         labelR.textProperty().bind(sliderR.valueProperty().asString());
         labelG.textProperty().bind(sliderG.valueProperty().asString());
         labelB.textProperty().bind(sliderB.valueProperty().asString());
+        
+        // Habilita el botón de Eliminar cuando un elemento está seleccionado
+        btnEliminar.disableProperty().
+                bind(lvColores.getSelectionModel().
+                selectedItemProperty().isNull()); 
     }    
 
     @FXML
@@ -74,4 +81,10 @@ public class Controlador implements Initializable {
         MiColor c = new MiColor((int) sliderR.getValue(), (int) sliderG.getValue(), (int) sliderB.getValue());
         lista.add(c);
     }
+
+    @FXML
+    private void onClickEliminar(ActionEvent event) {
+        lista.remove(lvColores.getSelectionModel().getSelectedItem());
+        lvColores.getSelectionModel().clearSelection();
+    }  
 }
