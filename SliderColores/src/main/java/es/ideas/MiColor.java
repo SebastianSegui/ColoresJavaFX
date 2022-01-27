@@ -23,6 +23,15 @@ public class MiColor {
         this.valorB.set(valorB);
     }
     
+    //toString necesario para que se muestren valores en la lista de la 
+    //aplicacion. Tambien determina el formato utilizado en la lista.
+    @Override
+    public String toString() {
+        return "RGB(" + valorR.get() + ", " + valorG.get() + ", " + 
+                valorB.get() + ")";
+    }
+    
+    //Getters y setters
     public int getValorR() {
         return valorR.get();
     }
@@ -57,10 +66,5 @@ public class MiColor {
 
     public IntegerProperty valorBProperty() {
         return valorB;
-    }
-
-    @Override
-    public String toString() {
-        return "RGB(" + valorR.get() + ", " + valorG.get() + ", " + valorB.get() + ")";
     }
 }
