@@ -14,6 +14,21 @@ import javafx.scene.control.Slider;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+/**
+ * Clase controladora de la aplicacion.
+ * 
+ * @author Alex
+ * @see <a href="https://github.com/iAleZz"> Repositorio
+ *      de Alex</a>
+ * @author Sebastián
+ * @see <a href="https://github.com/SebastianSegui"> Repositorio
+ *      de Sebastián</a>
+ * @see <a href="https://github.com/SebastianSegui/ColoresJavaFX"> Repositorio
+ *      del proyecto</a>
+ * 
+ * Clase MiColor: {@link es.ideas.MiColor}.
+ * Clase App: {@link es.ideas.App}.
+ */
 public class Controlador implements Initializable {
     
     private ObservableList<MiColor> lista;
@@ -41,6 +56,12 @@ public class Controlador implements Initializable {
     @FXML
     private Button btnEliminar;
 
+    /**
+     * Encargado de cargar todos los recursos y funcionalidades de la app.
+     * 
+     * @param url
+     * @param rb
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
